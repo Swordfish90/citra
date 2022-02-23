@@ -265,6 +265,8 @@ endif
 
 include Makefile.common
 
+SOURCES_CXX += $(DYNARMICSOURCES_CXX)
+
 CPPFILES = $(filter %.cpp,$(SOURCES_CXX))
 CCFILES = $(filter %.cc,$(SOURCES_CXX))
 
@@ -316,7 +318,7 @@ all: shaders $(TARGET)
 
 ffmpeg_configure:
 ifeq ($(HAVE_FFMPEG_STATIC), 1)
-	cd $(EXTERNALS_DIR)/ffmpeg && ./configure --disable-encoders --disable-decoders --enable-decoder=aac --enable-decoder=aac_fixed --enable-decoder=aac_latm --disable-programs
+	cd $(EXTERNALS_DIR)/ffmpeg && ./configure --disable-encoders --disable-decoders --enable-decoder=aac --enable-decoder=aac_fixed --enable-decoder=aac_latm --disable-programs --disable-x86asm
 endif
 ffmpeg_static: ffmpeg_configure
 ifeq ($(HAVE_FFMPEG_STATIC), 1)

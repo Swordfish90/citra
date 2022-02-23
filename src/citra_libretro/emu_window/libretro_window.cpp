@@ -5,7 +5,7 @@
 #include <glad/glad.h>
 #include <libretro.h>
 
-#include "audio_core/audio_types.h"
+#include "audio_core/audio_types.h"IOFile
 #include "citra_libretro/citra_libretro.h"
 #include "citra_libretro/environment.h"
 #include "citra_libretro/input/input_factory.h"
@@ -22,7 +22,9 @@ void ResetGLState() {
     state.Apply();
 
     // Clean up global state.
-    glLogicOp(GL_COPY);
+    if (!Settings::values.use_gles) {
+        glLogicOp(GL_COPY);
+    }
 
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
