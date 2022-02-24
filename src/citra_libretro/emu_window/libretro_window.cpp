@@ -5,7 +5,7 @@
 #include <glad/glad.h>
 #include <libretro.h>
 
-#include "audio_core/audio_types.h"IOFile
+#include "audio_core/audio_types.h"
 #include "citra_libretro/citra_libretro.h"
 #include "citra_libretro/environment.h"
 #include "citra_libretro/input/input_factory.h"
